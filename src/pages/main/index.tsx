@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FieldArray, Form, Formik, FormikProps } from "formik";
 import { useState } from "react";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaMagic, FaPlus, FaTrashAlt } from "react-icons/fa";
 import { TbMoodNerd } from "react-icons/tb";
 import { TextInput } from "../../components/input";
 import { MainLayout } from "../../components/layout";
@@ -51,7 +51,7 @@ export function MainPage(): JSX.Element {
     }
 
     setMountedUrl(finalUrl);
-    scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
@@ -83,31 +83,40 @@ export function MainPage(): JSX.Element {
         validationSchema={validationSchema}
       >
         {({ values, handleChange, errors }: FormikProps<LinkFormData>) => (
-          <div>
-            <Form>
-              <div className="grid gap-6 mb-6 pt-4 pb-8 border-b">
+          <div className="max-w-3xl mx-auto">
+            {mountedUrl && (
+              <Link
+                title={mountedUrl}
+                onNewClick={() => setMountedUrl(undefined)}
+              />
+            )}
+
+            <Form className="card">
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <span className="w-1 h-6 bg-primary rounded-full"></span>
+                  Base Configuration
+                </h2>
                 <TextInput
-                  label="Url base"
+                  label="Destination URL"
                   name={FieldNames.Link}
                   value={values[FieldNames.Link]}
                   error={errors[FieldNames.Link]}
                   onChange={handleChange(FieldNames.Link)}
                   type="text"
-                  placeholder="https://trebla.com.br"
+                  placeholder="https://example.com"
                 />
               </div>
 
-              {mountedUrl && (
-                <Link
-                  title={mountedUrl}
-                  onNewClick={() => setMountedUrl(undefined)}
-                />
-              )}
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <span className="w-1 h-6 bg-primary/70 rounded-full"></span>
+                  UTM Parameters
+                </h2>
 
-              <FieldArray name={FieldNames.Params}>
-                {({ remove, push }) => (
-                  <div className="flex-column">
-                    <div className="grid gap-4 lg:grid-cols-3 md:grid-cols-2">
+                <FieldArray name={FieldNames.Params}>
+                  {({ remove, push }) => (
+                    <div className="space-y-4">
                       {values.params.length > 0 &&
                         values.params.map((_, index) => {
                           const pErrors: any = errors?.params?.[index];
@@ -117,14 +126,16 @@ export function MainPage(): JSX.Element {
                             pErrors?.[index]?.[FieldNames.Value];
 
                           return (
-                            <div className="border rounded p-4 ">
-                              <div
-                                className="flex w-full md:gap-4 gap-2 items-center"
-                                key={index}
-                              >
-                                <div className="w-full">
+                            <div
+                              key={index}
+                              className="group relative bg-muted/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors"
+                            >
+                              <div className="flex flex-col md:flex-row gap-4 items-start">
+                                <div className="w-full md:w-1/3">
                                   <TextInput
-                                    label="Key"
+                                    label={
+                                      index === 0 ? "Parameter Key" : undefined
+                                    }
                                     name={`params.${index}.key`}
                                     value={values.params[index].key}
                                     onChange={handleChange(
@@ -135,9 +146,9 @@ export function MainPage(): JSX.Element {
                                   />
                                 </div>
 
-                                <div className="w-full">
+                                <div className="w-full md:w-2/3">
                                   <TextInput
-                                    label="Value"
+                                    label={index === 0 ? "Value" : undefined}
                                     name={`params.${index}.value`}
                                     value={values.params[index].value}
                                     onChange={handleChange(
@@ -148,15 +159,16 @@ export function MainPage(): JSX.Element {
                                   />
                                 </div>
 
-                                <div>
-                                  <label className="block mb-2 text-sm font-medium text-[#101827]">
-                                    Remove
-                                  </label>
-
+                                <div
+                                  className={`flex items-end ${
+                                    index === 0 ? "mt-7" : ""
+                                  }`}
+                                >
                                   <button
                                     type="button"
-                                    className="text-white border hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                    className="btn-danger opacity-50 group-hover:opacity-100"
                                     onClick={() => remove(index)}
+                                    title="Remove parameter"
                                   >
                                     <FaTrashAlt />
                                   </button>
@@ -164,49 +176,52 @@ export function MainPage(): JSX.Element {
                               </div>
 
                               {fieldError && (
-                                <span className="block mb-2 text-sm font-medium text-red-600 mt-2">
+                                <span className="block text-xs font-medium text-destructive mt-2">
                                   {fieldError}
                                 </span>
                               )}
                             </div>
                           );
                         })}
+
+                      <button
+                        type="button"
+                        className="w-full py-3 border-2 border-dashed border-border rounded-lg text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-muted/50 transition-all flex items-center justify-center gap-2 text-sm font-medium"
+                        onClick={() =>
+                          push({
+                            [FieldNames.Key]: "",
+                            [FieldNames.Value]: "",
+                          })
+                        }
+                      >
+                        <FaPlus /> Add Custom Parameter
+                      </button>
                     </div>
+                  )}
+                </FieldArray>
+              </div>
 
-                    <button
-                      type="button"
-                      className="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-4"
-                      onClick={() =>
-                        push({
-                          [FieldNames.Key]: "",
-                          [FieldNames.Value]: "",
-                        })
-                      }
-                    >
-                      Add more
-                    </button>
-                  </div>
-                )}
-              </FieldArray>
-
-              <button
-                type="submit"
-                className="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-16 border"
-              >
-                Do it
-              </button>
+              <div className="pt-6 border-t border-border">
+                <button
+                  type="submit"
+                  className="w-full btn-primary text-lg py-4"
+                >
+                  <FaMagic /> Generate Link
+                </button>
+              </div>
             </Form>
 
             {Object.entries(errors).length > 0 && (
-              <div className="mt-24">
-                <span className="flex items-center gap-2 mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  <TbMoodNerd />
-                  Nerds playground
-                </span>
-
-                <pre className="text-white bg-gray-800 p-4 rounded-md">
-                  {JSON.stringify(errors, null, 2)}
-                </pre>
+              <div className="mt-12 animate-pulse">
+                <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
+                  <span className="flex items-center gap-2 mb-2 text-sm font-bold text-destructive">
+                    <TbMoodNerd className="text-lg" />
+                    Validation Errors
+                  </span>
+                  <pre className="text-xs text-destructive/80 overflow-auto">
+                    {JSON.stringify(errors, null, 2)}
+                  </pre>
+                </div>
               </div>
             )}
           </div>
