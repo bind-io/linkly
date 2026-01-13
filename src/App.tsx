@@ -1,7 +1,13 @@
 import { MainPage } from "./pages/main";
+import { ToastProvider } from "./components/toast";
 
 function App() {
-  return <MainPage />;
+  return (
+    <>
+      <ToastProvider />
+      <MainPage />
+    </>
+  );
 }
 
 export default App;
