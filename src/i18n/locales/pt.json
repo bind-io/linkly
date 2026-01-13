@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Linkly",
+    "subtitle": "Construtor UTM"
+  },
+  "main": {
+    "title": "Crie Seu Link",
+    "subtitle": "Adicione sua URL e parâmetros personalizados. Simples e rápido.",
+    "urlSection": {
+      "title": "Sua URL",
+      "description": "Digite o link de destino que você deseja rastrear",
+      "placeholder": "https://exemplo.com ou exemplo.com",
+      "tip": "Você pode colar a URL com ou sem https://",
+      "required": "URL é obrigatória"
+    },
+    "paramsSection": {
+      "title": "Parâmetros Personalizados",
+      "description": "Adicione parâmetros de rastreamento (UTM, personalizado, etc)",
+      "keyPlaceholder": "utm_source",
+      "valuePlaceholder": "google",
+      "addButton": "Adicionar Parâmetro",
+      "commonParams": "💡 Parâmetros comuns:",
+      "keyRequired": "Chave é obrigatória",
+      "valueRequired": "Valor é obrigatório"
+    },
+    "generateButton": "Gerar Link",
+    "restoreLink": {
+      "title": "Continuar Link Anterior"
+    }
+  },
+  "link": {
+    "title": "Link Gerado!",
+    "subtitle": "Pronto para compartilhar e rastrear sua campanha",
+    "newButton": "Novo Link",
+    "characters": "caracteres",
+    "copyButton": "Copiar Link",
+    "copiedButton": "Copiado!",
+    "openButton": "Abrir Link",
+    "success": "Link criado com sucesso"
+  },
+  "debug": {
+    "title": "Console de Debug",
+    "errorLog": "Registro de Erros",
+    "debugInfo": "Informações de debug",
+    "noErrors": "Tudo Certo!",
+    "noErrorsDesc": "Nenhum erro registrado",
+    "operational": "✨ Todos os sistemas operacionais!",
+    "clearAll": "Limpar Tudo",
+    "error": "Erro",
+    "showDebug": "Mostrar Debug",
+    "hideDebug": "Ocultar Debug"
+  },
+  "footer": {
+    "madeWith": "Feito com",
+    "by": "por",
+    "openSource": "Código Aberto no GitHub",
+    "tagline": "Construindo links melhores, um parâmetro de cada vez.",
+    "selectLanguage": "Idioma"
+  },
+  "toast": {
+    "linkCreated": "Link criado!",
+    "linkCopied": "Link copiado para a área de transferência!",
+    "linkRestored": "Link anterior restaurado!",
+    "error": "Algo deu errado. Por favor, tente novamente.",
+    "invalidUrl": "Por favor, digite uma URL válida",
+    "noPreviousLink": "Nenhum link anterior encontrado",
+    "copyFailed": "Falha ao copiar link"
+  }
+}

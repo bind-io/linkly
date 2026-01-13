@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Linkly",
+    "subtitle": "UTM Builder"
+  },
+  "main": {
+    "title": "Create Your Link",
+    "subtitle": "Add your URL and custom parameters. Simple and fast.",
+    "urlSection": {
+      "title": "Your URL",
+      "description": "Enter the destination link you want to track",
+      "placeholder": "https://example.com or example.com",
+      "tip": "You can paste the URL with or without https://",
+      "required": "URL is required"
+    },
+    "paramsSection": {
+      "title": "Custom Parameters",
+      "description": "Add tracking parameters (UTM, custom, etc)",
+      "keyPlaceholder": "utm_source",
+      "valuePlaceholder": "google",
+      "addButton": "Add Parameter",
+      "commonParams": "💡 Common parameters:",
+      "keyRequired": "Key is required",
+      "valueRequired": "Value is required"
+    },
+    "generateButton": "Generate Link",
+    "restoreLink": {
+      "title": "Continue Previous Link"
+    }
+  },
+  "link": {
+    "title": "Link Generated!",
+    "subtitle": "Ready to share and track your campaign",
+    "newButton": "New Link",
+    "characters": "characters",
+    "copyButton": "Copy Link",
+    "copiedButton": "Copied!",
+    "openButton": "Open Link",
+    "success": "Link created successfully"
+  },
+  "debug": {
+    "title": "Debug Console",
+    "errorLog": "Error Log",
+    "debugInfo": "Debug information",
+    "noErrors": "All Clear!",
+    "noErrorsDesc": "No errors logged",
+    "operational": "✨ All systems operational!",
+    "clearAll": "Clear All",
+    "error": "Error",
+    "showDebug": "Show Debug Info",
+    "hideDebug": "Hide Debug Info"
+  },
+  "footer": {
+    "madeWith": "Made with",
+    "by": "by",
+    "openSource": "Open Source on GitHub",
+    "tagline": "Building better links, one parameter at a time.",
+    "selectLanguage": "Language"
+  },
+  "toast": {
+    "linkCreated": "Link created!",
+    "linkCopied": "Link copied to clipboard!",
+    "linkRestored": "Previous link restored!",
+    "error": "Something went wrong. Please try again.",
+    "invalidUrl": "Please enter a valid URL",
+    "noPreviousLink": "No previous link found",
+    "copyFailed": "Failed to copy link"
+  }
+}

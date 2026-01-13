@@ -12,28 +12,30 @@ export function TextInput({ label, error, ...props }: TextInputProps) {
       {label && (
         <label
           htmlFor={props.name}
-          className="block mb-2 text-sm font-medium text-muted-foreground"
+          className="block mb-3 text-sm font-bold text-foreground tracking-wide"
         >
           {label}
         </label>
       )}
 
-      <div className="relative">
+      <div className="relative group">
         <input
           className={`input-field ${
-            error ? "border-destructive focus:ring-destructive" : ""
+            error 
+              ? "border-destructive/60 focus:ring-destructive/20 focus:border-destructive" 
+              : ""
           }`}
           {...props}
         />
       </div>
 
       {error && (
-        <span className="flex items-center gap-1 mt-2 text-xs text-destructive animate-pulse">
+        <div className="flex items-center gap-2 mt-3 text-xs text-destructive bg-destructive/10 border border-destructive/20 rounded-lg px-3 py-2 animate-fade-in">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            className="w-3 h-3"
+            className="w-4 h-4 flex-shrink-0"
           >
             <path
               fillRule="evenodd"
@@ -41,8 +43,8 @@ export function TextInput({ label, error, ...props }: TextInputProps) {
               clipRule="evenodd"
             />
           </svg>
-          {error}
-        </span>
+          <span className="font-semibold">{error}</span>
+        </div>
       )}
     </div>
   );

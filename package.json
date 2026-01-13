@@ -15,9 +15,11 @@
   "dependencies": {
     "formik": "^2.4.6",
     "framer-motion": "^12.26.2",
+    "i18next": "^25.7.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.6.0",
+    "react-i18next": "^16.5.3",
     "react-icons": "^5.2.1",
     "yup": "^1.4.0"
   },
