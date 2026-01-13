@@ -81,7 +81,9 @@ export function DebugButton() {
                 <TbMoodNerd className="w-20 h-20 mx-auto text-primary relative" />
               </div>
               <h3 className="text-xl font-bold mb-2">All Clear!</h3>
-              <p className="text-muted-foreground text-base">No errors logged</p>
+              <p className="text-muted-foreground text-base">
+                No errors logged
+              </p>
               <p className="text-sm text-muted-foreground mt-3 bg-success/10 text-success border border-success/20 px-4 py-2 rounded-lg inline-block font-medium">
                 ✨ All systems operational!
               </p>
@@ -102,7 +104,9 @@ export function DebugButton() {
                         {errorCount}
                       </span>
                     </div>
-                    <span className="text-xs text-muted-foreground">Debug information</span>
+                    <span className="text-xs text-muted-foreground">
+                      Debug information
+                    </span>
                   </div>
                 </div>
                 <motion.button
@@ -127,7 +131,9 @@ export function DebugButton() {
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-destructive animate-pulse"></div>
-                        <span className="text-xs font-medium text-destructive uppercase tracking-wider">Error #{errors.length - index}</span>
+                        <span className="text-xs font-medium text-destructive uppercase tracking-wider">
+                          Error #{errors.length - index}
+                        </span>
                       </div>
                       <span className="text-xs text-muted-foreground font-medium px-2 py-1 bg-muted/50 rounded-md">
                         {formatDate(error.timestamp)}

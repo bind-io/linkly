@@ -36,7 +36,10 @@ export function Modal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          onClick={onClose}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -63,7 +66,9 @@ export function Modal({
                 <FaTimes className="w-5 h-5" />
               </motion.button>
             </div>
-            <div className="p-8 max-h-[70vh] overflow-y-auto custom-scrollbar">{children}</div>
+            <div className="p-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
+              {children}
+            </div>
           </motion.div>
         </div>
       )}

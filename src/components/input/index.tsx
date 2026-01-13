@@ -21,8 +21,8 @@ export function TextInput({ label, error, ...props }: TextInputProps) {
       <div className="relative group">
         <input
           className={`input-field ${
-            error 
-              ? "border-destructive/60 focus:ring-destructive/20 focus:border-destructive" 
+            error
+              ? "border-destructive/60 focus:ring-destructive/20 focus:border-destructive"
               : ""
           }`}
           {...props}

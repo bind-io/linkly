@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export function Header() {
   const { t } = useTranslation();
-  
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -10 }}
@@ -16,7 +16,7 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo - Elegante e sofisticado */}
-          <motion.div 
+          <motion.div
             className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -35,8 +35,12 @@ export function Header() {
               </motion.div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-black gradient-text tracking-tight">{t('header.title')}</span>
-              <span className="text-[10px] text-muted-foreground font-medium tracking-wider uppercase">{t('header.subtitle')}</span>
+              <span className="text-xl font-black gradient-text tracking-tight">
+                {t("header.title")}
+              </span>
+              <span className="text-[10px] text-muted-foreground font-medium tracking-wider uppercase">
+                {t("header.subtitle")}
+              </span>
             </div>
           </motion.div>
 

@@ -193,7 +193,9 @@ export function MainPage(): JSX.Element {
                     <HiLightningBolt className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1">{t("main.urlSection.title")}</h3>
+                    <h3 className="text-lg font-bold mb-1">
+                      {t("main.urlSection.title")}
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       {t("main.urlSection.description")}
                     </p>
@@ -264,7 +266,9 @@ export function MainPage(): JSX.Element {
                                         `params.${index}.key`
                                       )}
                                       type="text"
-                                      placeholder={t("main.paramsSection.keyPlaceholder")}
+                                      placeholder={t(
+                                        "main.paramsSection.keyPlaceholder"
+                                      )}
                                     />
                                     <TextInput
                                       label={index === 0 ? "Value" : undefined}
@@ -274,7 +278,9 @@ export function MainPage(): JSX.Element {
                                         `params.${index}.value`
                                       )}
                                       type="text"
-                                      placeholder={t("main.paramsSection.valuePlaceholder")}
+                                      placeholder={t(
+                                        "main.paramsSection.valuePlaceholder"
+                                      )}
                                     />
                                   </div>
 

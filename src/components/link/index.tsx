@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { FaCheck, FaCopy, FaExternalLinkAlt, FaRedo, FaChartLine } from "react-icons/fa";
+import {
+  FaCheck,
+  FaCopy,
+  FaExternalLinkAlt,
+  FaRedo,
+  FaChartLine,
+} from "react-icons/fa";
 import { HiCheckCircle } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
@@ -44,7 +50,7 @@ export function Link({
       <div className="relative card overflow-hidden group border-primary/20 shadow-2xl shadow-primary/10">
         {/* Animated background gradient - mais suave */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-100 transition-opacity duration-700"></div>
-        
+
         {/* Success header - mais elegante */}
         <div className="relative flex items-center justify-between mb-8 pb-6 border-b-2 border-border/40">
           <div className="flex items-center gap-4">
@@ -60,11 +66,15 @@ export function Link({
               </div>
             </motion.div>
             <div>
-              <h3 className="text-2xl font-black text-foreground mb-1">{t("link.title")}</h3>
-              <p className="text-sm text-muted-foreground font-medium">{t("link.subtitle")}</p>
+              <h3 className="text-2xl font-black text-foreground mb-1">
+                {t("link.title")}
+              </h3>
+              <p className="text-sm text-muted-foreground font-medium">
+                {t("link.subtitle")}
+              </p>
             </div>
           </div>
-          
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -93,7 +103,9 @@ export function Link({
                 <span className="text-muted-foreground font-medium">
                   {title.length} {t("link.characters")}
                 </span>
-                <span className="text-muted-foreground font-mono">{new Date().toLocaleTimeString()}</span>
+                <span className="text-muted-foreground font-mono">
+                  {new Date().toLocaleTimeString()}
+                </span>
               </div>
             </div>
           </div>
@@ -106,7 +118,9 @@ export function Link({
             whileTap={{ scale: 0.97 }}
             onClick={handleCopy}
             className={`relative col-span-2 sm:col-span-1 btn-primary h-14 text-base shadow-xl transition-all duration-300 ${
-              copied ? "bg-gradient-to-br from-success to-success/90 shadow-success/30" : "shadow-primary/30"
+              copied
+                ? "bg-gradient-to-br from-success to-success/90 shadow-success/30"
+                : "shadow-primary/30"
             }`}
           >
             <AnimatePresence mode="wait">
